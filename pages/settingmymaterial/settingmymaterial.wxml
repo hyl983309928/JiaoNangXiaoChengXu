@@ -1,0 +1,62 @@
+
+<import src="../../utils/we-cropper/we-cropper.wxml"/>
+
+<view class=".page">
+  <view class="line"></view>
+  <my-cell title="孩子头像" data-action="child" bind:tap="changeHead">
+    <image src="{{childrenInfo.childrenList[0].headimgUrl}}"></image>
+  </my-cell>
+  <my-cell title="孩子昵称" isBorderBottom="{{true}}" data-action="child" bind:tap="changeChildName">
+    {{childrenInfo.childrenList[0].name}}
+  </my-cell>
+  <view class="line"></view>
+  <my-cell title="孩子性别" bind:tap="changeChildSex">
+    {{childrenInfo.childrenList[0].sex == 0 ? '男':'女'}}
+  </my-cell>
+  <picker mode="date" value="{{childrenInfo.childrenList[0].birthday}}" bindchange="changeBirthday" end="{{endDate}}">
+    <my-cell title="孩子生日" bind:tap="tapCell">
+      {{childrenInfo.childrenList[0].birthday}}
+    </my-cell>
+  </picker>
+  <picker mode="selector" range="{{identitylist}}" bindchange="changeIdentity">
+    <my-cell title="您与孩子的关系" isBorderBottom="{{true}}">
+      {{childrenInfo.identity}}
+    </my-cell>
+  </picker>
+  <view class="line"></view>
+  <my-cell title="家长头像" data-action="parent" bind:tap="changeHead">
+    <image src="{{childrenInfo.parentsPicture}}"></image>
+  </my-cell>
+  <my-cell title="家长昵称" bind:tap="changeChildName" data-action="parent" isBorderBottom="{{true}}">
+    {{childrenInfo.name}}
+  </my-cell>
+  <button class="button" catch:tap="submit">完成</button>
+  <view class="inputDialog" wx:if="{{showInput}}">
+    <view class="content">
+      <view class="title">{{inputMadel.title}}</view>
+      <view class="center">
+        <input maxlength="7" focus="{{true}}" bindinput="bindinput" bindconfirm="confimInput" value="{{inputMadel.value}}" placeholder="{{inputMadel.title}}" class="input" />
+      </view>
+      <view class="foot">
+        <view catch:tap="cancelInput" class="cancel">取消</view>
+        <view catch:tap="confimInput" class="ok">确定</view>
+      </view>
+    </view>
+  </view>
+  <view class="cropper" hidden="{{!iscropper}}">
+    <template  is="we-cropper" data="{{...cropperOpt}}"/>
+    <cover-view class="close" catch:tap="closeUpload">X</cover-view>
+    <view class="cropper-buttons">
+      <view
+          class="upload"
+          bindtap="uploadTap">
+        重新选择
+      </view>
+      <view
+          class="getCropperImage"
+          bindtap="getCropperImage">
+        确定
+      </view>
+    </view>
+  </view>
+</view>

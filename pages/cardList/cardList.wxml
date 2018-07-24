@@ -1,0 +1,87 @@
+
+<view class="page" catch:touchmove="touchmove">
+  <view class="navBox" style="background: {{bgColorList[preCard - 1]}};">
+    <view class="nav" style="transform: translateX({{-(nowNav - 1) * num}}px);transition: {{isMoving?'0':'0.3'}}s all;-webkit-transform:translateX({{-(nowNav - 1) * num}}px);" bind:touchstart="touchstartnav" bind:touchmove="touchmovenav" bind:touchend="touchendnav">
+      <block wx:for="{{list}}" wx:key="id" wx:for-index="navIndex" wx:for-item="navItem">
+        <view class="navItemBox" data-index="{{navIndex + 1}}" bind:tap="changeNowCard">
+          <view class="{{nowCard==navIndex + 1?'active' : ''}}">Day{{navIndex + 1}}</view>
+        </view>
+      </block>
+      <view class="navItemBar">
+        <view style="transform: translateX({{(nowCard - 1) * num}}px);-webkit-transform:translateX({{(nowCard - 1) * num}}px);transition: {{isMoving?'0':'0.3'}}s all;"><view></view></view>
+      </view>
+    </view>
+  </view>
+  <view class="card">
+    <view class="cardListBox" style="transform: translateX({{-(nowCard - 1) * cardItemNum}}px);-webkit-transform: translateX({{-(nowCard - 1) * cardItemNum}}px);transition: {{isMoving?'0':'0.3'}}s all;);" bind:touchstart="touchstartcard" bind:touchmove="touchmovecard" bind:touchend="touchendcard">
+      <block wx:for="{{list}}" wx:key="id" wx:for-index="capIndex" wx:for-item="capItem">
+        <view data-id="{{capItem.id}}" data-lock="{{capItem.isLocked}}" catch:tap="goCapsuleInfo" class="cardItem {{nowCard==capIndex + 1?'active' : ''}}"  style="background: {{bgColorList[capIndex]}};">
+          <!--<view data-id="{{capItem.id}}" data-lock="{{false}}" catch:tap="goCapsuleInfo" class="cardItem {{nowCard==capIndex + 1?'active' : ''}}"  style="background: {{bgColorList[capIndex]}};">-->
+          <view class="cardMask" wx:if="{{capItem.isLocked}}">
+            <image src="/imgs/list/lock.png"></image>
+          </view>
+          <image class="cover" src="{{capItem.cover}}"></image>
+          <view class="infoBox">
+            <view class="topic">{{capItem.topic}}</view>
+            <view class="target">
+              <text wx:for="{{capItem.targetSceneLabelTitle}}" wx:key="">{{item}}</text>
+            </view>
+            <view class="exerNum">
+              {{capItem.exerciseAnsNum}}组家庭已完成
+            </view>
+            <block wx:if="{{!capItem.isLocked}}">
+              <view class="introBox">
+                <view>{{capItem.capsuleDesc}}</view>
+              </view>
+              <view class="infoBtn">
+                <image src="/imgs/list/{{sceneTypeMap[capItem.sceneType]}}.png"></image>
+              </view>
+            </block>
+          </view>
+          <view class="isExercised" wx:if="{{capItem.completeStatus}}">
+            <image src="/imgs/list/exercised.png"></image>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="cardFoot">
+      <view class="head">
+        <image src="{{childrenInfo.childrenList[0].headimgUrl}}"></image>
+        已完成 {{capsuleInfo.capsuleInfo.completeNum}}/{{capsuleInfo.capsuleInfo.total}}
+      </view>
+      <view class="targetBox" catch:tap="showTargetDescription">
+        <image src="/imgs/list/target.png"></image>
+        目标解读
+      </view>
+    </view>
+  </view>
+  <view class="dialog" wx:if="{{showLockDialog}}">
+    <view class="mask" catch:tap="hideLockDialog"></view>
+    <view class="content infoBox">
+      <image src="https://xinjijiaoyu.oss-cn-shenzhen.aliyuncs.com/Accompany%20capsule%20Pop-up/Pop-up%201.png"></image>
+      <view class="info">
+        <view class="info_one">
+        明天才能解锁此胶囊哦
+        </view>
+        <view class="info_one">
+          那么先去“发现”频道逛逛
+        </view>
+        <view class="info_one">
+          说不定有有意外的收获。
+        </view>
+      </view>
+      <view class="btn" catch:tap="goDiscover"><view>看一看</view></view>
+    </view>
+  </view>
+
+  <view class="dialogTarget " wx:if="{{showTargetDialog}}">
+    <view class="mask" catch:tap="hideTargetDialog"></view>
+    <view class="content infoBox">
+      <view class="title">{{hashLable[capsuleInfo.targetInfo.labelTarget].title}}（{{hashLable[capsuleInfo.targetInfo.labelAge].title}}）</view>
+      <view class="info">
+        {{capsuleInfo.description_title}}
+      </view>
+      <view class="btn" catch:tap="hideTargetDialog">确定</view>
+    </view>
+  </view>
+</view>

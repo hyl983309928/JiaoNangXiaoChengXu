@@ -1,0 +1,24 @@
+.tabbar{
+  display: flex;
+  align-items: center;
+  height: 110rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 1000;
+  border-top: 1px solid #ccc;
+}
+.tabbar .tabItem{
+  width: 33%;
+  height: 110rpx;
+  text-align: center;
+}
+.tabItem .icon image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 12rpx;
+}
+.text{
+}

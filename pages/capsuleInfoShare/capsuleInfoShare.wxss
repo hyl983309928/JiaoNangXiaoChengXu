@@ -1,0 +1,296 @@
+
+.page{
+  padding-bottom: 98rpx;
+}
+.infoBox{
+  width:100%;
+  box-sizing: border-box;
+  padding: 54rpx 44rpx 25rpx 44rpx ;
+}
+.title text{
+  display: inline-block;
+  font-size: 48rpx;
+  color: #333;
+  font-weight: bold;
+  line-height: 70rpx;
+  margin-bottom: 20rpx;
+}
+.age{
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 30rpx;
+}
+.targetListBox{
+  margin-bottom: 31rpx;
+}
+.targetItem{
+  display: flex;
+  align-items: center;
+}
+.targetListBox:last-child{
+  margin-bottom: 0rpx;
+}
+.targetItem view{
+  width:200rpx;
+  height:46rpx;
+  line-height: 46rpx;
+  border-radius: 23rpx;
+  margin-right: 26rpx;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.targetItem view image{
+  width:36rpx;
+  height: 36rpx;
+  margin-right: 10rpx;
+}
+.targetItem text{
+  font-size: 28rpx;
+  color: #333;
+  display: inline-block;
+  margin-right: 23rpx;
+}
+.smallCover{
+  width:662rpx;
+  margin-bottom: 40rpx;
+  margin-top: 40rpx;
+}
+.materials{
+  margin-bottom: 50rpx;
+  font-size: 28rpx;
+}
+.materials .title{
+  font-size: 32rpx;
+  color: #42D1D9;
+  margin-bottom: 30rpx;
+  font-weight: bold;
+}
+.materials text{
+  font-size: 28rpx;
+  color: #333;
+}
+.exerNum{
+  font-size: 26rpx;
+  color: #999;
+}
+
+
+.foot{
+  background: #fff;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  box-sizing: border-box;
+  border-top: 1px solid #ccc;
+  height:98rpx;
+  position: fixed;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.foot view,.foot button{
+  box-sizing: border-box;
+  width:33%;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #eee;
+  background: #fff;
+  border-radius: 0;
+}
+.foot view:last-child{
+  border-right: 0px solid #eee;
+}
+.foot image{
+  width:46rpx;
+  height:42rpx;
+  margin-right: 14rpx;
+}
+.foot text{
+  font-size: 36rpx;
+  color: #333;
+}
+
+.dialog{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1010;
+}
+.dialog .mask{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+  background: rgba(0,0,0,0.6);
+}
+.dialog .content{
+  width: 559rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 30rpx;
+  background: #fff;
+  box-sizing: border-box;
+  z-index: 1020;
+  max-height: 90%;
+  overflow: hidden;
+}
+.evaluate{
+  padding: 73rpx 41rpx 57rpx 41rpx;
+  text-align: center;
+}
+.evaluate .title{
+  color: #333;
+  font-size: 52rpx;
+  font-weight: bold;
+  margin-bottom: 32rpx;
+}
+.evaluate .subTitle{
+  color: #666;
+  font-size: 32rpx;
+  margin-bottom: 47rpx;
+}
+.evaluate .btn{
+  display: inline-block;
+  width: 258rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  border-radius: 40rpx;
+  background: #42d1d9;
+  margin-top: 60rpx;
+}
+.evaluate .imgBox{
+  display: flex;
+  justify-content: center;
+}
+.evaluate .itemBox{
+  width:33%;
+}
+.evaluate .face{
+  margin-bottom: 24rpx;
+  width:131rpx;
+  height:134rpx;
+}
+.evaluate .itemBox>view{
+  display: flex;
+  align-items: center;
+  color: #999;
+  font-size: 28rpx;
+  justify-content: center;
+}
+.evaluate .right{
+  margin-left: 10rpx;
+  width:25rpx;
+  height:25rpx;
+}
+.wxParse-p{
+  font-size: 32rpx;
+  line-height: 50rpx;
+  text-align:justify;
+}
+.ql-editor{
+  margin-bottom: 20rpx;
+}
+
+
+.dialog{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1110;
+}
+.dialog .mask{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+  background: rgba(0,0,0,0.5);
+}
+.dialog .content{
+  width: 518rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 30rpx;
+  background: #fff;
+  box-sizing: border-box;
+  z-index: 1020;
+  max-height: 90%;
+  overflow: hidden;
+  text-align: center;
+}
+.dialog .content .title{
+  font-size: 46rpx;
+  color: #333;
+  margin-top: 69rpx;
+  font-weight: bold;
+  margin-bottom: 43rpx;
+}
+.dialog .content image{
+  width:334rpx;
+  height:243rpx;
+  margin-bottom: 36rpx;
+}
+.dialog .content .info_one{
+  display: block;
+  text-align: center;
+  font-size: 34rpx;
+  margin-bottom: 26rpx;
+  color: #666;
+}
+.dialog .content .info_two{
+  display: block;
+  text-align: center;
+  font-size: 34rpx;
+  color: #666;
+}
+.dialog .btn {
+  text-align: center;
+  margin-top: 52rpx;
+  margin-bottom: 47rpx;
+}
+.dialog .btn{
+  width:258rpx;
+  height:80rpx;
+  border-radius: 40rpx;
+  color: #fff;
+  font-size: 34rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background: #42D1D9;
+  display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

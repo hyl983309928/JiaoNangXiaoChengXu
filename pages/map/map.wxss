@@ -1,0 +1,354 @@
+
+.page{
+  width:100%;
+  height:100%;
+}
+.bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width:100%;
+  height: 100%;
+  z-index: -1;
+}
+.top{
+  margin-top: 20rpx;
+  margin-left: 45rpx;
+  color: #fff;
+  position: relative;
+}
+.top .name{
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 22rpx;
+}
+.top .age{
+  font-size: 26rpx;
+}
+.isExerBox{
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-align: center;
+  margin-right: 34rpx;
+}
+.isExerBox image{
+  width:79rpx;
+  height:74rpx;
+  margin-bottom: 10rpx;
+}
+.isExerBox text{
+  font-size: 22rpx;
+  color: #fff;
+  display: block;
+  width:149rpx;
+  height:42rpx;
+  line-height: 42rpx;
+  text-align: center;
+  background: #5EE4AC;
+  border-radius: 21rpx;
+}
+
+.map{
+}
+.mapItem:first-child{
+  margin-top: 182rpx;
+}
+.mapItem{
+  text-align: center;
+  margin-bottom: 66rpx;
+  position: relative;
+}
+.mapItem .content{
+  display: inline-block;
+  width:60%;
+  box-sizing: border-box;
+  position: relative;
+}
+.mapItem .contentblock{
+  width:40%;
+  height:228rpx;
+  box-sizing: border-box;
+  display: inline-block;
+}
+.mapItem .imgBox{
+  display: inline-block;
+  width:176rpx;
+  height:176rpx;
+  background: #fff;
+  border-radius: 50% 50%;
+  margin-bottom: 25rpx;
+  position: relative;
+  z-index: 810;
+  overflow: hidden;
+}
+.imgwrap{
+  position: relative;
+  display: inline-block;
+}
+.mapItem .imgFoot{
+  width:160rpx;
+  height:23rpx;
+  position: absolute;
+  bottom: 15rpx;
+  left: 9rpx;
+  z-index: 100;
+}
+.mapItem .imgBox .labelImg{
+  z-index: 810;
+  width:176rpx;
+  height:176rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.mapItem .lockText{
+  color: #859F63 !important;
+}
+.mapItem .lockText image{
+  vertical-align: top;
+  margin-top: -2rpx;
+  width:30rpx;
+  height:34rpx;
+  margin-right: 5rpx;
+}
+.mapItem .text{
+  display: block;
+  font-size: 28rpx;
+  color: #fff;
+  line-height: 34rpx;
+}
+.mapItem .text .query{
+  border-radius: 50% 50%;
+  width: 34rpx;
+  height:34rpx;
+  margin-top: -2rpx;
+  vertical-align: top;
+}
+.mapItem .popup{
+  width:261rpx;
+  position: absolute;
+  top: -145rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #F77A78;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx;
+  z-index: 1010;
+}
+.mapItem .popup:after{
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -35rpx;
+  margin-left: -20rpx;
+  width:0;
+  height:0;
+  border-width: 20rpx;
+  border-color: #F77A78 transparent transparent transparent;
+  border-style: solid dashed dashed dashed;
+}
+
+.mapItem .popup .head{
+  width:80rpx;
+  height:80rpx;
+  border-radius: 40rpx;
+  margin-right: 23rpx;
+}
+.mapItem .popup view{
+  display: inline-block;
+  margin-right: 18rpx;
+}
+.mapItem .popup view .day{
+  font-size: 32rpx;
+  color: #fff;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 11rpx;
+}
+.mapItem .popup view .scene{
+  font-size: 24rpx;
+  color: #AF5756;
+}
+.mapItem .popup .play{
+  height:28rpx;
+  width:28rpx;
+}
+
+.mapItem .lineLeft{
+  position: absolute;
+  width:186rpx;
+  height:117rpx;
+  bottom: -137rpx;
+  left: 50%;
+}
+.mapItem .lineRight{
+  position: absolute;
+  width:186rpx;
+  height:117rpx;
+  bottom: -137rpx;
+  right: 50%;
+}
+
+
+
+
+
+.dialog{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1110;
+}
+.dialog .mask{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+  background: rgba(0,0,0,0.5);
+}
+.dialog .content{
+  width: 518rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 30rpx;
+  background: #fff;
+  box-sizing: border-box;
+  z-index: 1020;
+  max-height: 90%;
+  overflow: hidden;
+}
+.dialog .infoBox image{
+  width:518rpx;
+  height:328rpx;
+  margin-bottom: 45rpx;
+}
+.dialog .infoBox .info_one{
+  display: block;
+  text-align: center;
+  font-size: 34rpx;
+  margin-bottom: 26rpx;
+  color: #333;
+}
+.dialog .infoBox .info_two{
+  display: block;
+  text-align: center;
+  font-size: 34rpx;
+  color: #333;
+}
+.dialog .btn {
+  text-align: center;
+  margin-top: 52rpx;
+  margin-bottom: 47rpx;
+}
+.dialog .btn view{
+  margin: 0 auto;
+  width:258rpx;
+  height:80rpx;
+  border-radius: 40rpx;
+  color: #fff;
+  font-size: 34rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background: #42D1D9;
+}
+
+
+.dialogTarget{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1010;
+}
+.dialogTarget .mask{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+  background: rgba(0,0,0,0.6) !important;
+}
+.dialogTarget .content{
+  width: 561rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  margin-left: -23rpx;
+  border-radius: 30rpx;
+  background: #fff;
+  box-sizing: border-box;
+  z-index: 1021;
+  max-height: 70%;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 85rpx 0rpx 45rpx 0rpx;
+  text-align: center;
+}
+.dialogTarget .title{
+  color: #333;
+  font-size: 52rpx;
+  line-height: 70rpx;
+  margin-bottom: 30rpx;
+}
+.dialogTarget .info{
+  color: #999;
+  font-size: 30rpx;
+  margin-bottom:72rpx;
+  text-align: left;
+  text-align: justify;
+  line-height: 45rpx;
+  padding: 0 64rpx;
+}
+.dialogTarget .btn{
+  width:258rpx;
+  height:80rpx;
+  border-radius: 40rpx;
+  color: #fff;
+  font-size: 34rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background: #42D1D9;
+  display: inline-block;
+}
+
+.yearActivity{
+  position: fixed;
+  bottom: 28rpx;
+  right: 20rpx;
+  width: 215rpx;
+  height:167rpx;
+  z-index: 1500;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

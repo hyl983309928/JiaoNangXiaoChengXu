@@ -1,0 +1,8 @@
+
+
+<view class="page" catch:touchmove="touchmove">
+  <view class="imgBox">
+    <image src="https://xinjijiaoyu.oss-cn-shenzhen.aliyuncs.com/Accompany%20capsule%20Pop-up/Pop-up%209.png"></image>
+  </view>
+  <view bind:tap="confim" class="btn">立即开始</view>
+</view>

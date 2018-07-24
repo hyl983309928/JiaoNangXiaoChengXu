@@ -1,0 +1,61 @@
+  {
+  "pages":[
+    "pages/index/index",
+    "pages/map/map",
+    "pages/myInfo/myInfo",
+    "pages/discover/discover",
+    "pages/createChildInfo/createChildInfo",
+    "pages/cardList/cardList",
+    "pages/capsuleInfo/capsuleInfo",
+    "pages/weeklyReport/weeklyReport",
+    "pages/everydayReport/everydayReport",
+    "pages/settingmymaterial/settingmymaterial",
+    "pages/medal/medal",
+    "pages/guide/guide",
+    "pages/discoverReport/discoverReport",
+    "pages/capsuleInfoShare/capsuleInfoShare",
+    "pages/everydayReportShare/everydayReportShare",
+    "pages/weeklyReportShare/weeklyReportShare",
+    "pages/discoverReportShare/discoverReportShare",
+    "pages/guide/guideOld",
+    "pages/subjectYear/subjectYear"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#42D1D9",
+    "navigationBarTitleText": "亲子陪伴胶囊",
+    "navigationBarTextStyle":"white"
+  },
+  "networkTimeout": {
+    "request": 15000,
+    "downloadFile": 15000
+  },
+  "debug": true,
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#42D1D9",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/map/map",
+        "text": "专属胶囊",
+        "iconPath": "imgs/capsule_no.png",
+        "selectedIconPath": "imgs/capsule_ok.png"
+      },
+      {
+        "pagePath": "pages/discover/discover",
+        "text": "发现",
+        "iconPath": "imgs/find_no.png",
+        "selectedIconPath": "imgs/find_ok.png"
+      },
+      {
+        "pagePath": "pages/myInfo/myInfo",
+        "text": "我的",
+        "iconPath": "imgs/my_no.png",
+        "selectedIconPath": "imgs/my_ok.png"
+      }
+    ]
+  }
+}
+  

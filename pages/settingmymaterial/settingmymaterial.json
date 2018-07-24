@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#42D1D9",
+  "navigationBarTitleText": "编辑个人资料",
+  "navigationBarTextStyle":"white",
+  "usingComponents": {
+    "my-cell": "../components/cell/cell"
+  }
+}

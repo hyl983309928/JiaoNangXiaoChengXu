@@ -1,0 +1,21 @@
+
+<view class="tabbar">
+  <view class="tabItem" data-tab="1" bindtap="changeTab">
+    <view class="icon" >
+      <image src="/imgs/home{{tabIndex == 1 ? '2' : '1'}}.png"></image>
+    </view>
+    <view class="text">专属胶囊</view>
+  </view>
+  <view class="tabItem" data-tab="2" bindtap="changeTab">
+    <view class="icon">
+      <image src="/imgs/home{{tabIndex == 2 ? '2' : '1'}}.png"></image>
+    </view>
+    <view class="text">发现</view>
+  </view>
+  <view class="tabItem" data-tab="3" bindtap="changeTab">
+    <view class="icon">
+      <image src="/imgs/home{{tabIndex == 3 ? '2' : '1'}}.png"></image>
+    </view>
+    <view class="text">我的</view>
+  </view>
+</view>

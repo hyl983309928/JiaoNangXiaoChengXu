@@ -1,0 +1,22 @@
+
+
+
+<view class="page" catch:touchmove="touchmove">
+  <view class="imgBox"  style="transform: translateX(-{{width * stepIndex}}px);transition: {{isMoving?'0':'0.3'}}s all;-webkit-transform: translateX(-{{width * stepIndex}}px);"  bind:touchstart="touchstartcard" bind:touchmove="touchmovecard" bind:touchend="touchendcard">
+    <image src="https://xinjijiaoyu.oss-cn-shenzhen.aliyuncs.com/Accompany%20capsule%20Pop-up/Pop-up%206.png"></image>
+    <image src="https://xinjijiaoyu.oss-cn-shenzhen.aliyuncs.com/Accompany%20capsule%20Pop-up/Pop-up%207.png"></image>
+    <image src="https://xinjijiaoyu.oss-cn-shenzhen.aliyuncs.com/Accompany%20capsule%20Pop-up/Pop-up%208.png"></image>
+  </view>
+  <!--<view class="imgBox" bind:touchstart="touchstartcard" bind:touchmove="touchmovecard" bind:touchend="touchendcard">-->
+    <!--<image src="https://xinjijiaoyu.oss-cn-shenzhen.aliyuncs.com/Accompany%20capsule%20Pop-up/Pop-up%206.png"></image>-->
+    <!--<image src="https://xinjijiaoyu.oss-cn-shenzhen.aliyuncs.com/Accompany%20capsule%20Pop-up/Pop-up%207.png"></image>-->
+    <!--<image src="https://xinjijiaoyu.oss-cn-shenzhen.aliyuncs.com/Accompany%20capsule%20Pop-up/Pop-up%208.png"></image>-->
+  <!--</view>-->
+
+  <view class="dot" wx:if="{{stepIndex < 2}}">
+    <view style="background: {{stepIndex < 1 ? '#fff': ''}};"></view>
+    <view style="background: {{stepIndex >= 1 && stepIndex < 2? '#fff': ''}};"></view>
+    <view style="background: {{stepIndex >= 2? '#fff': ''}};"></view>
+  </view>
+  <view bind:tap="confim" class="btn" wx:else>立即开始</view>
+</view>

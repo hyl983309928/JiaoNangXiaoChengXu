@@ -1,0 +1,256 @@
+@import '/pages/template/steps/steps.wxss';
+.title{
+  display: block;
+  width:100%;
+  text-align: center;
+  font-size: 46rpx;
+  color: #333;
+  margin-bottom: 28rpx;
+}
+.guideBg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  width:100%;
+  height:100%;
+}
+.infoOne{
+  padding: 40rpx  0 0 0;
+}
+.sub_title{
+  display: block;
+  width:100%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 38rpx;
+}
+.stepBox{
+  width:326rpx;
+  margin: 0 auto;
+  margin-bottom: 42rpx;
+}
+.imgBox{
+  height:244rpx;
+  width:100%;
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+.imgBox view{
+  display: inline-block;
+  height:244rpx;
+  width:244rpx;
+  overflow: hidden;
+  border-radius: 50% 50%;
+  background: #eee;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.noImg image{
+  width:120rpx;
+  height: 100rpx;
+}
+.okImg image{
+  width:244rpx;
+  height: 244rpx;
+}
+
+.sexBox{
+  width:100%;
+  margin-bottom: 68rpx;
+}
+.sexBox image{
+  width: 66rpx;
+  height: 74rpx;
+  margin-right: 16rpx;
+}
+.sexBox botton{
+  width:130rpx;
+  height:56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  color: #ccc;
+  border-radius: 28rpx;
+  border: 2rpx solid #ccc;
+  font-size: 28rpx;
+}
+.man, .women{
+  width:50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.sexBox .active_man {
+  border: 2rpx solid #67c2ee;
+  color: #67c2ee;
+}
+.sexBox .active_women {
+  border: 2rpx solid #ee67a0;
+  color: #ee67a0;
+}
+.btn{
+  text-align: center;
+}
+.btn botton{
+  display: inline-block;
+  width: 258rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 40rpx;
+  background: #eee;
+  font-size: 34rpx;
+  color: #ccc;
+  margin-bottom: 28rpx;
+}
+.btn .action{
+  background: #42d1d9;
+  color: #fff;
+}
+.nameBox, .birthdayBox{
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50rpx;
+}
+.nameBox{
+}
+.nameBox image, .birthdayBox image{
+  width:41rpx;
+  height:41rpx;
+  margin-right: 30rpx;
+}
+.nameBox input, .birthdayBox input{
+  font-size: 28rpx;
+  width:400rpx;
+  border-bottom: 1px solid #eee;
+}
+.familyBox{
+  width:100%;
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+.familyBox .mom, .familyBox .dad {
+  width: 146rpx;
+  height: 176rpx;
+}
+.familyBox .daughter, .familyBox .son {
+  width: 77rpx;
+  height: 100rpx;
+}
+.familyBox .son{
+  margin-left: -30rpx;
+}
+.familyBox .daughter{
+  margin-right: -30rpx;
+}
+.chooseRelation{
+  width:100%;
+  margin-bottom: 50rpx;
+}
+.chooseRelation text{
+  display: inline-block;
+  font-weight: bold;
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 30rpx;
+  margin-left: 30rpx;
+}
+.chooseRelation>view{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.chooseRelation>view>view{
+  width:33%;
+  text-align: center;
+}
+.chooseRelation>view>view>botton{
+  display: inline-block;
+  font-size: 28rpx;
+  color: #999;
+  width:128rpx;
+  height:56rpx;
+  border: 1px solid #999;
+  line-height: 56rpx;
+  border-radius: 28rpx;
+  text-align: center;
+}
+.chooseRelation .active_dad{
+  border: 1px solid #67C2EE;
+  color: #67C2EE;
+}
+.chooseRelation .active_mom{
+  border: 1px solid #ee67a0;
+  color: #ee67a0;
+}
+.chooseRelation .active{
+  border: 1px solid #42d1d9;
+  color: #42d1d9;
+}
+.birthdayBox view{
+  position: relative;
+}
+.birthdayBox .move{
+  margin-right: 15rpx;
+  width:16rpx;
+  height:25rpx;
+  position: absolute;
+  right: 0;
+  top:0;
+  margin-top: 10rpx;
+}
+.cropper{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1030;
+  background: #000;
+}
+.cropper-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+}
+.cropper-buttons{
+  background-color: rgba(0, 0, 0, 0.95);
+  color: #fff;
+}
+.cropper-buttons .upload, .cropper-buttons .getCropperImage{
+  width: 50%;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

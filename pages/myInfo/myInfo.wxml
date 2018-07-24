@@ -1,0 +1,196 @@
+
+<view catch:touchmove="touchmove">
+  <image class="topBg" src="/imgs/myInfo/bg.png"></image>
+  <view class="childInfo">
+    <navigator url="/pages/settingmymaterial/settingmymaterial"><image class="setting" src="/imgs/myInfo/setting.png"></image></navigator>
+    <view class="InfoBox" bind:tap="goSetting">
+      <image class="head" src="{{childrenInfo.childrenList[0].headimgUrl}}"></image>
+      <view class="Name">{{childrenInfo.childrenList[0].name}}</view>
+      <view class="Age">{{childrenInfo.childAge}}</view>
+    </view>
+    <view class="center">
+      <view class="exerNumBox">
+        <view class="label">打卡天数</view>
+        <view class="num">{{growInfo.answerDayNum}}</view>
+      </view>
+      <image class="heart" src="/imgs/myInfo/heart.png"></image>
+    </view>
+    <view class="InfoBox"  bind:tap="goSetting">
+      <image class="head" src="{{childrenInfo.parentsPicture}}"></image>
+      <view class="Name">{{childrenInfo.name}}</view>
+      <view class="Age">{{childrenInfo.identity}}</view>
+    </view>
+  </view>
+  <view class="capsuleNum">
+    <view class="numItem" catch:tap="changeTab" data-index="1">
+      <view class="num {{tabIndex == 1 ? 'action': ''}}">{{growInfo.answerCapsuleNum}}</view>
+      <view class="label {{tabIndex == 1 ? 'action': ''}}">胶囊</view>
+    </view>
+    <view class="numItem" catch:tap="changeTab" data-index="2">
+      <view class="num {{tabIndex == 2 ? 'action': ''}}">{{growInfo.collectNum}}</view>
+      <view class="label {{tabIndex == 2 ? 'action': ''}}">收藏</view>
+    </view>
+    <view class="numItem" catch:tap="changeTab" data-index="3">
+      <view class="num {{tabIndex == 3 ? 'action': ''}}">{{growInfo.medalNum}}</view>
+      <view class="label {{tabIndex == 3 ? 'action': ''}}">勋章</view>
+    </view>
+    <!--<view class="numItem">-->
+      <!--<view class="num">156</view>-->
+      <!--<view class="label">打卡</view>-->
+    <!--</view>-->
+  </view>
+  <view class="borderBottom">
+    <view style="transform: translateX({{250 * rpx * (tabIndex - 1)}}px);-webkit-transform:translateX({{250 * rpx * (tabIndex - 1)}}px);"></view>
+  </view>
+  <!--<view class="line"></view>-->
+  <view class="list">
+  <view class="listBox" style="transform: translateX({{-750 * rpx * (tabIndex - 1)}}px);-webkit-transform: translateX({{-750 * rpx * (tabIndex - 1)}}px);">
+    <scroll-view class="capsuleListBox" scroll-y style="height:{{height - 513 * rpx}}px" bindscrolltolower="scrolltolowerExer">
+      <block wx:for="{{capsuleList}}" wx:key="id">
+      <view class="line"></view>
+      <view bind:tap="goCapsuleInfo" data-id="{{item.id}}" class="capsuleItemBox" >
+        <view class="content">
+          <view class="capsuleTypeBox" style="background: {{capsuleTypeColorMap[item.sceneType]}};">
+            <image src="{{item.sceneType==1?'/imgs/discover/game.png':item.sceneType==2?'/imgs/discover/look.png':'/imgs/discover/speak.png'}}"></image>
+            <text>{{item.sceneType==1?'一起玩':item.sceneType==2?'一起看':'一起聊'}}</text>
+          </view>
+
+          <image wx:if="{{item.hasAnswer}}" class="exercisedImg" src="/imgs/exerBlue.png"></image>
+          <image class="cover" src="{{item.cover}}"></image>
+          <view class="info">
+            <view class="title">{{item.topic}}</view>
+            <view class="target">
+              <text wx:for="{{item.labelTarget_title}}" wx:key="" wx:for-index="targetIndex" wx:for-item="targetItem" style="border:1px solid {{targetColorMap[targetItem.fatherId]}};color: {{targetColorMap[targetItem.fatherId]}};">{{targetItem.name}}</text>
+            </view>
+            <view class="introduce">
+              {{item.capsuleDesc}}
+            </view>
+          </view>
+        </view>
+        <view class="footInfo">
+          <view class="time">
+            打卡：{{item.created_label}}
+          </view>
+          <view class="time">
+            {{item.exerciseAnsNum}}个家庭试过
+          </view>
+          <view class="age">
+            {{item.labelAge_title}} {{item.labelScene_title}}
+          </view>
+        </view>
+      </view>
+
+      </block>
+      <view class="line"></view>
+      <view class="isMore" wx:if="{{isMoreExer && capsuleList.length!=0}}">
+        加载全部，没有更多了
+      </view>
+      <view class="listNull" wx:if="{{capsuleList.length==0}}">
+        <image src="/imgs/myInfo/listNull1.png"></image>
+        <view class="textLabel">暂时还没有胶囊</view>
+        <view class="textSmallLabel">快去和宝贝完成胶囊吧~</view>
+        <button catch:tap="goDiscover">看一看</button>
+      </view>
+    </scroll-view>
+
+    <scroll-view class="capsuleListBox" scroll-y style="height:{{height - 513 * rpx}}px" bindscrolltolower="scrolltolowerCollect">
+      <block wx:for="{{collectList}}" wx:key="id">
+        <view class="line"></view>
+        <view bind:tap="goCapsuleInfo" data-id="{{item.id}}" class="capsuleItemBox" >
+          <view class="content">
+            <view class="capsuleTypeBox" style="background: {{capsuleTypeColorMap[item.sceneType]}};">
+              <image src="{{item.sceneType==1?'/imgs/discover/game.png':item.sceneType==2?'/imgs/discover/look.png':'/imgs/discover/speak.png'}}"></image>
+              <text>{{item.sceneType==1?'一起玩':item.sceneType==2?'一起看':'一起聊'}}</text>
+            </view>
+
+            <image wx:if="{{item.hasAnswer}}" class="exercisedImg" src="/imgs/exerBlue.png"></image>
+            <image class="cover" src="{{item.cover}}"></image>
+            <view class="info">
+              <view class="title">{{item.topic}}</view>
+              <view class="target">
+                <text wx:for="{{item.labelTarget_title}}" wx:key="" wx:for-index="targetIndex" wx:for-item="targetItem" style="border:1px solid {{targetColorMap[targetItem.fatherId]}};color: {{targetColorMap[targetItem.fatherId]}};">{{targetItem.name}}</text>
+              </view>
+              <view class="introduce">
+                {{item.capsuleDesc}}
+              </view>
+            </view>
+          </view>
+          <view class="footInfo">
+            <view class="time">
+              收藏：{{item.created_label}}
+            </view>
+            <view class="time">
+              {{item.exerciseAnsNum}}个家庭试过
+            </view>
+            <view class="age">
+              {{item.labelAge_title}} {{item.labelScene_title}}
+            </view>
+          </view>
+        </view>
+      </block>
+      <view class="line" wx:if="{{isMoreCollect && collectList.length!=0}}"></view>
+      <view class="isMore" wx:if="{{isMoreCollect && collectList.length!=0}}">
+        加载全部，没有更多了
+      </view>
+      <!--<view wx:if="{{isMoreCollect && collectList.length==1}}" class="capsuleItemBox" style="width:100%;height:350rpx;" ></view>-->
+      <view class="listNull" wx:if="{{collectList.length==0}}" style="">
+        <image src="/imgs/myInfo/listNull2.png"></image>
+        <view class="textLabel">您还没有收藏</view>
+        <view class="textSmallLabel">把有趣的胶囊添加进来吧~</view>
+        <button catch:tap="goDiscover">看一看</button>
+      </view>
+    </scroll-view>
+
+
+    <scroll-view class="capsuleListBox" scroll-y style="height:{{height - 513 * rpx}}px">
+      <view class="medalList">
+        <view class="medalItem" wx:for="{{medalsList}}" wx:key="">
+          <view class="medalName">{{item.medalName}}</view>
+          <!--<image class="shadow" src="/imgs/report/shadow.png"></image>-->
+          <view class="imgBox">
+            <image class="{{item.completeStatus==0?'desaturate':''}}" src="{{item.medalImgUrl}}"></image>
+          </view>
+          <view class="info">
+            <view class="name">{{labelList[item.labelTarget].title}}勋章</view>
+            <view class="time">{{item.completeStatus==0?'未获得':item.time_title}}</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+
+  </view>
+  </view>
+  <!--<view class="chart">-->
+    <!--<view class="chart_title">本周成长曲线</view>-->
+    <!--<view class="canvasBox">-->
+      <!--<canvas class="canvas" canvas-id="canvasLine"></canvas>-->
+    <!--</view>-->
+    <!--<view class="chartFoot">-->
+      <!--<view class="footitem" wx:for="{{chartMapLine}}" wx:key="">-->
+        <!--<view class="line" style="background: {{item.color}}"></view>-->
+        <!--<view class="label">{{item.label}}</view>-->
+      <!--</view>-->
+    <!--</view>-->
+  <!--</view>-->
+
+  <!--<view class="line"></view>-->
+  <!--<view class="chart_eadar">-->
+    <!--<view class="chart_title">宝贝的目标能力发展</view>-->
+    <!--<view class="">-->
+      <!--<canvas class="canvasEadar" canvas-id="canvasRadar"></canvas>-->
+    <!--</view>-->
+  <!--</view>-->
+
+  <!--<view class="line"></view>-->
+
+  <!--<view class="chart_bar">-->
+    <!--<view class="chart_title" style="margin-bottom: 60rpx">宝贝的目标能力发展</view>-->
+    <!--<view style="margin-bottom: 60rpx">-->
+      <!--<canvas class="canvasBar" canvas-id="canvasBar"></canvas>-->
+    <!--</view>-->
+  <!--</view>-->
+  <!--<view class="line"></view>-->
+  <!--<view class="share">-->
+    <!--<image src="/imgs/myInfo/share.png"></image>-->
+  <!--</view>-->
+</view>

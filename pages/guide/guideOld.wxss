@@ -1,0 +1,32 @@
+.page{
+  overflow: hidden;
+  height:100%;
+  text-align: center;
+}
+.imgBox{
+  white-space: nowrap;
+  height:100%;
+  box-sizing: border-box;
+}
+.imgBox image{
+  box-sizing: border-box;
+  height:100%;
+  width:100%;
+  font-size: 0;
+}
+.btn{
+  display: inline-block;
+  width:290rpx;
+  height:92rpx;
+  border-radius: 46rpx;
+  background: #fff;
+  border: 2px solid #248A99;
+  color: #248A99;
+  position: fixed;
+  font-size: 36rpx;
+  text-align: center;
+  line-height: 92rpx;
+  bottom: 120rpx;
+  left: 50%;
+  margin-left: -145rpx;
+}

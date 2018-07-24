@@ -1,0 +1,15 @@
+
+
+<template name="dialog">
+  <view class="dialog" wx:if="{{showLockDialog}}">
+    <view class="mask" catch:tap="hideLockDialog"></view>
+    <view class="content infoBox">
+      <image src="/imgs/1.jpg"></image>
+      <view class="info">
+        <text class="info_one">今日事今日毕</text>
+        <text class="info_two">明天再来打卡解锁吧</text>
+      </view>
+      <view class="btn"><view>其他好玩的</view></view>
+    </view>
+  </view>
+</template>

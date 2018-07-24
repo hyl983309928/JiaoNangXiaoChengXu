@@ -1,0 +1,426 @@
+.topBg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width:750rpx;
+  height:175rpx;
+  z-index: -1;
+}
+.childInfo{
+  text-align: center;
+  padding-top: 40rpx;
+  margin-bottom: 27rpx;
+  position: relative;
+  /*display: flex;*/
+}
+.setting{
+  position: absolute;
+  left: 30rpx;
+  top: 16rpx;
+  width:42rpx;
+  height:41rpx;
+}
+
+.childInfo .InfoBox{
+  display: inline-block;
+  text-align: center;
+  margin-top: 20rpx;
+  /*width:32%;*/
+}
+.childInfo .InfoBox .head{
+  width:160rpx;
+  height:160rpx;
+  border-radius: 80rpx;
+  margin-bottom: 24rpx;
+  border: 2px solid #42D1D9;
+}
+.childInfo .InfoBox .Name{
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 18rpx;
+  width:160rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.childInfo .InfoBox .Age{
+  font-size: 26rpx;
+  color: #999;
+}
+.childInfo .center{
+  vertical-align: top;
+  display: inline-block;
+  /*width: 36%;*/
+}
+.childInfo .exerNumBox .label{
+  font-size: 29rpx;
+  color:#fff;
+  margin-bottom: 23rpx;
+}
+.childInfo .exerNumBox .num{
+  font-size: 53rpx;
+  font-weight: bold;
+  color:#fff;
+  margin-bottom: 86rpx;
+}
+
+.childInfo .heart{
+  width:235rpx;
+  height:60rpx;
+  margin: 0 15rpx;
+  vertical-align: top;
+}
+
+.capsuleNum{
+  border-top: 1px solid #e5e5e5;
+  height:124rpx;
+  display: flex;
+  align-items: center;
+}
+.capsuleNum .numItem{
+  width:33%;
+  text-align: center;
+}
+.capsuleNum .numItem .num{
+  margin-bottom: 19rpx;
+  font-size: 40rpx;
+  color: #333;
+}
+.capsuleNum .numItem .label{
+  font-size: 28rpx;
+  color: #999;
+}
+.line{
+  width: 100%;
+  height: 20rpx;
+  background: #f5f5f5;
+}
+.chart{
+  margin-top: 40rpx;
+  text-align: center;
+}
+.chart_title{
+  text-align: center;
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+}
+.canvasBox{
+  width:660rpx;
+  height:450rpx;
+  margin: 0 auto;
+}
+.canvas{
+  width:660rpx;
+  height:450rpx;
+}
+.chart_eadar{
+  width:750rpx;
+  height:600rpx;
+  margin-top: 40rpx;
+  margin-bottom: 70rpx;
+}
+.canvasEadar {
+  width:750rpx;
+  height:600rpx;
+}
+
+.chartFoot{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50rpx;
+}
+.footitem{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 47rpx;
+}
+.footitem:last-child{
+  margin-right: 0;
+}
+.footitem .line{
+  display: inline-block;
+  width:64rpx;
+  height:10rpx;
+  border-radius: 5rpx;
+  margin-right: 21rpx;
+}
+.footitem .label{
+  display: inline-block;
+  font-size: 22rpx;
+  color: #333;
+}
+
+.chart_bar{
+  width:750rpx;
+  margin-top: 40rpx;
+}
+.canvasBar{
+  width:750rpx;
+  height:460rpx;
+}
+.share{
+  position: fixed;
+  right: 20rpx;
+  bottom: 20rpx;
+  width:104rpx;
+  height:104rpx;
+  background: rgba(66,209,217,0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.share image{
+  width:59rpx;
+  height:60rpx;
+}
+
+.action{
+  color: #42d1d9 !important;
+}
+
+.borderBottom{
+  width:100%;
+  height:6rpx;
+}
+.borderBottom view{
+  transition: 0.3s all;
+  width:250rpx;
+  height:6rpx;
+  background: #42d1d9;
+}
+
+.list{
+  width:100%;
+  overflow: hidden;
+}
+.listBox{
+  box-sizing: border-box;
+  width:100%;
+  white-space: nowrap;
+  transition: 0.3s all;
+  background: #fff;
+}
+
+.capsuleListBox{
+  box-sizing: border-box;
+  display: inline-block;
+  background: #fff;
+  width:750rpx;
+  white-space: normal;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.capsuleItemBox{
+  padding: 30rpx;
+  background: #fff;
+  vertical-align: top;
+  box-sizing: border-box;
+  /*margin-bottom: 20rpx;*/
+}
+.capsuleItemBox .content{
+  padding-bottom: 28rpx;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+}
+.capsuleItemBox .cover{
+  width:206rpx;
+  height: 206rpx;
+  margin-right: 32rpx;
+  border-radius: 20rpx;
+}
+.capsuleItemBox .info{
+  display: inline-block;
+  vertical-align: top;
+  width:450rpx;
+}
+.capsuleItemBox .title{
+  font-size: 36rpx;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 22rpx;
+  margin-top: 8rpx;
+}
+.capsuleItemBox .target{
+  margin-bottom: 14rpx;
+}
+.capsuleItemBox .target text{
+  display: inline-block;
+  padding: 0 20rpx;
+  height:36rpx;
+  line-height: 36rpx;
+  text-align: center;
+  border-bottom-left-radius: 18rpx;
+  border-top-right-radius: 18rpx;
+  margin-right: 23rpx;
+}
+.capsuleItemBox .introduce{
+  font-size: 26rpx;
+  color: #666666;
+  line-height: 40rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+.capsuleItemBox .footInfo{
+  font-size: 24rpx;
+  color: #ccc;
+  padding-top: 26rpx;
+}
+.capsuleItemBox .footInfo .time{
+  display: inline-block;
+  margin-right: 15rpx;
+}
+.capsuleItemBox .age{
+  display: inline-block;
+  float: right;
+  color: #999;
+}
+
+
+.medalList{
+  display: flex;
+  padding-top: 56rpx;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  background: #fff;
+}
+
+.medalItem{
+  width:33%;
+  text-align: center;
+  margin-bottom: 68rpx;
+  position: relative;
+}
+.medalName{
+  position: absolute;
+  top: 112rpx;
+  left: 48rpx;
+  text-align: center;
+  width: 155rpx;
+  height:30rpx;
+  line-height: 30rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #fff;
+  font-size: 24rpx;
+  font-weight: bold;
+  z-index: 1010;
+}
+.medalItem .imgBox{
+  margin-bottom: 32rpx;
+}
+.medalItem .imgBox image{
+  width:184rpx;
+  height:162rpx;
+}
+.info .name{
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 18rpx;
+}
+.info .time{
+  font-size: 22rpx;
+  color: #999;
+}
+.shadow{
+  position: absolute;
+  width:129rpx;
+  height: 6.2rpx;
+  top: 156rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.isMore{
+  padding: 73rpx 0 73rpx 0;
+  font-size: 35rpx;
+  color: #aaa;
+  text-align: center;
+  background: #fff;
+}
+.listNull{
+  background: #fff;
+  padding-top: 50rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+.listNull>image{
+  width:183rpx;
+  height:159rpx;
+  margin-bottom: 46rpx;
+}
+.listNull .textLabel{
+  font-size: 35rpx;
+  color: #999;
+  margin-bottom: 30rpx
+}
+.listNull .textSmallLabel{
+  font-size: 29rpx;
+  color: #ccc;
+  margin-bottom: 60rpx;
+}
+.listNull>button{
+  width:280rpx;
+  height:88rpx;
+  background: #42d1d9;
+  color: #fff;
+  font-size: 35rpx;
+  border-radius: 44rpx;
+  border: 0;
+}
+
+.exercisedImg{
+  position: absolute;
+  width: 108rpx;
+  height: 108rpx;
+  right: 0;
+  bottom: 17rpx;
+  z-index: 1010;
+}
+
+
+.capsuleTypeBox{
+  width:101rpx;
+  height:34rpx;
+  border-top-right-radius: 17rpx;
+  border-bottom-right-radius: 17rpx;
+  position: absolute;
+  top: 20rpx;
+  left: -4rpx;
+  display: flex;
+  align-items: center;
+}
+.capsuleTypeBox image{
+  width:26rpx;
+  height:26rpx;
+  border-radius: 50% 50%;
+  margin-right: 4rpx;
+  margin-left: 5rpx;
+}
+.capsuleTypeBox text{
+  font-size: 18rpx;
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+

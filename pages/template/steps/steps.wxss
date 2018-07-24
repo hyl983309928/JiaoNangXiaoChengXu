@@ -1,0 +1,40 @@
+
+
+.stepBox{
+  width:100%;
+  display: flex;
+}
+.stepItem{
+  text-align: center;
+  flex-grow: 1;
+  position: relative;
+  overflow: hidden;
+}
+.stepBox .active{
+  background: #42D1D9;
+}
+.stepItem:last-child{
+  flex-grow: 0;
+}
+.stepicon{
+  width:28rpx;
+  height:28rpx;
+  background: #eee;
+  color: #fff;
+  border-radius: 50% 50%;
+  font-size: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+.line{
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top:50%;
+  right: 0;
+  margin-left: -2rpx;
+  background: #eee;
+  height:4rpx;
+}

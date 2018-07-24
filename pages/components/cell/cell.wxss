@@ -1,0 +1,44 @@
+.cellitem{
+  padding: 25rpx 30rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: #fff;
+}
+.cellitem_content{
+  flex-grow: 1;
+  font-size: 32rpx;
+  color: #333;
+}
+.cellitem_content text{
+  white-space: nowrap;
+  margin-right: 20rpx;
+}
+.cellitem_foot{
+  text-align: left;
+  position: relative;
+  padding-right: 26rpx;
+  font-size: 32rpx;
+  color: #999;
+}
+.cellitem_foot:after{
+  content: " ";
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border-width: 2px 2px 0 0;
+  border-color: #C8C8CD;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  top: -2px;
+  position: absolute;
+  top: 50%;
+  margin-top: -4px;
+  right: 2px;
+}
+.cellitem_foot>image{
+  width: 110rpx;
+  height:110rpx;
+  border-radius: 50%;
+}

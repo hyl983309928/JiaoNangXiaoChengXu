@@ -1,0 +1,18 @@
+/**app.wxss**/
+@import "/wxParse/wxParse.wxss";
+@import "/font/font.wxss";
+page{
+  width: 100%;
+  height: 100%;
+  font-family: sans-serif,Arial,Helvetica,"微软雅黑",Verdana,"黑体","Times New Roman";
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1;
+}
+image.desaturate {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+button:after{
+  border: 0;
+}

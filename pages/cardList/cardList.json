@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#7adfe4",
+  "navigationBarTitleText": "陪伴胶囊",
+  "navigationBarTextStyle":"white",
+  "usingComponents": {
+    "my-dialog": "../components/dialog/dialog"
+  }
+}

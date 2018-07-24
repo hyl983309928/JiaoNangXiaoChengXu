@@ -1,0 +1,87 @@
+
+<view  class="page">
+  <view class="wxInfoBox">
+    <image src="{{dayInfo.parentsPicture}}"></image>
+    {{dayInfo.name}} 完成了
+  </view>
+  <view class="title">
+    {{dayInfo.childrenName}}专属陪伴计划：第{{dayInfo.weekNum}}周，{{lableTargetTitle}}
+  </view>
+  <view class="medalBox">
+    <view class="medalName">{{dayInfo.target.medalName}}</view>
+    <image class="medalstar" src="/imgs/report/medalstar.png"></image>
+    <image class="medal" src="{{dayInfo.target.medalImgUrl}}"></image>
+    <!--<image class="shadow" src="/imgs/report/shadow.png"></image>-->
+  </view>
+  <view class="text">恭喜你获得{{dayInfo.target.medalName}}勋章！请继续努力~</view>
+  <view class="line"></view>
+  <view class="moodBox">
+    <view class="title">{{dayInfo.childrenName}}最近7天的心情记录</view>
+    <view class="mood">
+      <view class="top">
+        <text class="sign sign1"></text>
+        <text class="sign sign2"></text>
+        <text class="sign sign3"></text>
+        <text class="sign sign4"></text>
+        <view wx:for="{{7}}" wx:key="">Day{{index + 1}}</view>
+      </view>
+      <view class="content">
+        <view wx:for="{{dayInfo.performanceList}}" wx:key="" style="background: {{item == 1?'#FF6767':item==2?'#FFD667':item==3?'#42D1D9':'#FFD667'}}">
+          <image src="/imgs/report/{{dayInfo.childrenSex==0?'boy':'girl'}}_{{item!=0?item:2}}.png"></image>
+          <text>{{item == 3?'很嗨':item == 1?'没意思':'一般'}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="line"></view>
+  <view class="chart">
+    <view class="chart_title">本周成长曲线</view>
+    <view class="canvasBox">
+      <canvas class="canvas" canvas-id="canvas"></canvas>
+    </view>
+    <view class="chartFoot">
+      <view class="footitem" wx:for="{{chartMap}}" wx:key="">
+        <view class="line" style="background: {{item.color}}"></view>
+        <view class="label">{{item.label}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="line"></view>
+  <view class="info">
+    <view class="infoItemBox">
+      <view class="label">打卡天数</view>
+      <view class="data"><text>{{rateInfo.ansDayNum}}</text>天</view>
+    </view>
+    <view class="infoItemBox">
+      <view class="label">陪伴时长</view>
+      <view class="data"><text>{{rateInfo.ansCount * 10}}</text>分钟</view>
+    </view>
+    <view class="infoItemBox">
+      <view class="label">完成胶囊数</view>
+      <view class="data"><text>{{rateInfo.ansCount}}</text>个</view>
+    </view>
+  </view>
+  <view class="surpass">
+    超过了{{rateInfo.weekRate}}%的家庭，继续加油
+  </view>
+  <!--<button class="shareBtn" open-type="share">-->
+    <!--分享给大家炫耀一下-->
+    <!--<image class="star" src="/imgs/report/star.png"></image>-->
+  <!--</button>-->
+  <view id="pageFoot" class="pageFoot">
+  </view>
+  <view style="clear: both;"></view>
+  <cover-view class="dialog" hidden="{{!showDialog}}">
+    <cover-view class="mask" catch:tap="hideDialog"></cover-view>
+    <cover-view class="content">
+      <cover-view class="title">定制亲子陪伴计划</cover-view>
+      <cover-image src="/imgs/shareDialog.png"></cover-image>
+      <cover-view class="">
+        <cover-view class="info_one">每天5-10分钟</cover-view>
+        <cover-view class="info_two">给孩子优质的陪伴！</cover-view>
+      </cover-view>
+      <cover-view class="btn" catch:tap="startCapsule">立即开始</cover-view>
+    </cover-view>
+  </cover-view>
+
+</view>

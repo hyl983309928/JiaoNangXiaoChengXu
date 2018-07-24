@@ -1,0 +1,9 @@
+
+<view class="cellitem" style="border-bottom: 1px solid {{isBorderBottom ? '#fff': '#e5e5e5'}}">
+  <view class="cellitem_content">
+    <text>{{title}}</text>
+  </view>
+  <view class="cellitem_foot">
+    <slot></slot>
+  </view>
+</view>

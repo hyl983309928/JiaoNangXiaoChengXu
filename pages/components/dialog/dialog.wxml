@@ -1,0 +1,8 @@
+
+
+<view class="dialog">
+  <view class="mask"></view>
+  <view scroll-y="{{true}}" class="content">
+    <slot></slot>
+  </view>
+</view>

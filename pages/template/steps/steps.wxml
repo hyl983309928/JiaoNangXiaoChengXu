@@ -1,0 +1,16 @@
+<template name="my-steps">
+  <view class="stepBox">
+    <view class="stepItem">
+      <view class="stepicon {{stepIndex>=1?'active':''}}">1</view>
+      <view class="line {{stepIndex>=2?'active':''}}"></view>
+    </view>
+    <view class="stepItem">
+      <view class="stepicon {{stepIndex>=2?'active':''}}">2</view>
+      <view class="line {{stepIndex>=3?'active':''}}"></view>
+    </view>
+    <view class="stepItem">
+      <view class="stepicon {{stepIndex==3?'active':''}}">3</view>
+    </view>
+  </view>
+</template>
+

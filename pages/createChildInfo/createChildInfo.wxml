@@ -1,0 +1,98 @@
+
+<import src="../template/steps/steps.wxml" />
+<import src="../../utils/we-cropper/we-cropper.wxml"/>
+<image class="guideBg" src="https://xinjijiaoyu.oss-cn-shenzhen.aliyuncs.com/Accompany%20capsule%20Pop-up/first%20page.png"></image>
+<my-dialog>
+  <view class="infoOne">
+    <text class="title">{{title}}</text>
+    <text class="sub_title">我们将为您量身订制最适合的陪娃方案</text>
+    <template is="my-steps" data="{{stepIndex: stepIndex}}"></template>
+    <block wx:if="{{stepIndex==1}}">
+      <view class="imgBox" bind:tap="uploadImg">
+        <view wx:if="{{!info.childrenList[0].headimgUrl}}" class="noImg">
+          <image src="/imgs/createChildInfo/photo.png"></image>
+        </view>
+        <view wx:else class="okImg">
+          <image src="{{info.childrenList[0].headimgUrl}}"></image>
+        </view>
+      </view>
+      <view class="sexBox">
+        <view class="man">
+          <image src="/imgs/createChildInfo/boy_{{info.childrenList[0].sex==0?'ok': 'no'}}.png"></image>
+          <botton bindtap="changeSex" data-sex="0" class="{{info.childrenList[0].sex==0?'active_man': ''}}">男孩</botton>
+        </view>
+        <view class="women">
+          <image src="/imgs/createChildInfo/girl_{{info.childrenList[0].sex==1?'ok': 'no'}}.png"></image>
+          <botton bindtap="changeSex" data-sex="1" class="{{info.childrenList[0].sex==1?'active_women': ''}}">女孩</botton>
+        </view>
+      </view>
+      <view class="btn">
+        <botton data-index="1" data-flag="{{info.childrenList[0].sex==0||info.childrenList[0].sex==1}}" bind:tap="nextStep" class="{{(info.childrenList[0].sex==0||info.childrenList[0].sex==1)?'action': ''}}">下一步</botton>
+      </view>
+    </block>
+    <block wx:if="{{stepIndex==2}}">
+      <view class="imgBox">
+        <view class="okImg">
+          <image src="{{info.childrenList[0].headimgUrl}}"></image>
+        </view>
+      </view>
+      <view class="nameBox">
+        <image src="/imgs/createChildInfo/user.png"></image>
+        <input placeholder="请输入宝贝昵称" value="{{info.childrenList[0].name}}" bindinput="nameSend" />
+      </view>
+      <view class="birthdayBox">
+        <image src="/imgs/createChildInfo/date.png"></image>
+        <picker mode="date" start="1999-01-01" bindchange="chooseDate" >
+          <view>
+            <input placeholder="请选择宝贝生日" value="{{info.childrenList[0].birthday}}" disabled="true"></input>
+            <image class="move" src="/imgs/createChildInfo/more.png"></image>
+          </view>
+        </picker>
+      </view>
+      <view class="btn">
+        <botton data-index="2" data-flag="{{info.childrenList[0].name&&info.childrenList[0].birthday}}" bind:tap="nextStep" class="{{info.childrenList[0].name&&info.childrenList[0].birthday?'action': ''}}">下一步</botton>
+      </view>
+    </block>
+    <block wx:if="{{stepIndex==3}}">
+      <view class="familyBox">
+        <image class="mom" src="/imgs/createChildInfo/{{info.identity=='妈妈' || (info.identity && info.identity!='爸爸')?'mom_ok': 'mom_no'}}.png"></image>
+        <image class="son" src="/imgs/createChildInfo/{{info.identity && info.identity!='爸爸' && info.identity!='妈妈'?'son_ok': 'son_no'}}.png" ></image>
+        <image class="daughter" src="/imgs/createChildInfo/{{info.identity && info.identity!='爸爸' && info.identity!='妈妈'?'daug_ok': 'daug_no'}}.png" ></image>
+        <image class="dad" src="/imgs/createChildInfo/{{info.identity=='爸爸' || (info.identity && info.identity!='妈妈')?'dad_ok': 'dad_no'}}.png" ></image>
+      </view>
+      <view class="chooseRelation">
+        <text>您与孩子的关系</text>
+        <view>
+          <view>
+            <botton class="{{info.identity=='爸爸'?'active_dad': ''}}" data-value="爸爸" bind:tap="chooseRelation">奶爸</botton>
+          </view>
+          <view>
+            <botton class="{{info.identity=='妈妈'?'active_mom': ''}}" data-value="妈妈" bind:tap="chooseRelation">宝妈</botton>
+          </view>
+          <view>
+            <botton bind:tap="selectIdentity" class="{{info.identity && info.identity!='爸爸' && info.identity!='妈妈'?'active': ''}}">{{info.identity && info.identity!='爸爸' && info.identity!='妈妈' && info.identity!='七大姑八大姨'?info.identity:'其他'}}</botton>
+          </view>
+        </view>
+      </view>
+      <view class="btn">
+        <botton data-flag="{{info.identity}}" bind:tap="submit" class="{{info.identity?'action': ''}}">完成</botton>
+      </view>
+    </block>
+  </view>
+</my-dialog>
+<view class="cropper" hidden="{{!iscropper}}">
+  <template  is="we-cropper" data="{{...cropperOpt}}"/>
+  <cover-view class="close" catch:tap="closeUpload">X</cover-view>
+  <view class="cropper-buttons">
+    <view
+        class="upload"
+        bindtap="uploadTap">
+      重新选择
+    </view>
+    <view
+        class="getCropperImage"
+        bindtap="getCropperImage">
+      确定
+    </view>
+  </view>
+</view>

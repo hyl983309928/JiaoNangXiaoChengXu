@@ -1,0 +1,54 @@
+
+<import src="../../wxParse/wxParse.wxml"/>
+<scroll-view lower-threshold="{{10}}" scroll-y bindscrolltolower="scrolltolower" class="page" style="height: {{height}}px">
+  <view class="infoBox">
+    <view class="title">
+      <text>{{info.topic}}</text>
+    </view>
+    <view class="age">
+      {{info.labelAge_title}} {{info.labelScene_title}}
+    </view>
+    <view class="target">
+      <view class="targetListBox" wx:if="{{tItem.list.length != 0}}" wx:key="" wx:for="{{targetList}}" wx:for-index="tIndex" wx:for-item="tItem">
+        <view class="targetItem">
+          <view style="background: {{tItem.target=='学会学习'?'#4290D9':tItem.target=='学会相处'?'#F75372':'#f7b753'}}"><image src="/imgs/capsuleInfo/{{tItem.target=='学会学习'?'study':tItem.target=='学会相处'?'xiangchu':'live'}}.png"></image>{{tItem.target}}</view>
+          <text wx:for="{{tItem.list}}" wx:key="">{{item}}</text>
+        </view>
+      </view>
+    </view>
+    <image mode="widthFix" class="smallCover" src="{{info.smallCover}}"></image>
+    <view class="materials" wx:if="{{info.property && info.property!='<p><br></p>' && info.property!='<p></p>'}}">
+      <view class="title" >游戏道具</view>
+      <template is="wxParse" data="{{wxParseData:property.nodes}}"></template>
+    </view>
+    <view class="materials">
+      <view class="title">快跟我动起来</view>
+      <template is="wxParse" data="{{wxParseData:sceneExample.nodes}}"></template>
+    </view>
+    <view class="materials" wx:if="{{info.benefit && info.benefit!='<p><br></p>' && info.benefit!='<p></p>'}}">
+      <view class="title">好处</view>
+      <template is="wxParse" data="{{wxParseData:benefit.nodes}}"></template>
+    </view>
+    <view class="materials" wx:if="{{info.keyPoint && info.keyPoint!='<p><br></p>' && info.keyPoint!='<p></p>'}}">
+      <view class="title">小提示</view>
+      <template is="wxParse" data="{{wxParseData:keyPoint.nodes}}"></template>
+    </view>
+    <view class="exerNum">
+      {{info.exerciseAnsNum}}组家庭已经完成
+    </view>
+  </view>
+
+  <view class="dialog" wx:if="{{showDialog}}">
+    <view class="mask" catch:tap="hideDialog"></view>
+    <view class="content">
+      <view class="title">定制亲子陪伴计划</view>
+      <image src="/imgs/shareDialog.png"></image>
+      <view class="info">
+        <text class="info_one">每天5-10分钟</text>
+        <text class="info_two">给孩子优质的陪伴！</text>
+      </view>
+      <view class="btn" catch:tap="startCapsule">立即开始</view>
+    </view>
+  </view>
+
+</scroll-view>

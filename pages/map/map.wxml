@@ -1,0 +1,127 @@
+
+<view class="page">
+  <image class="bg" src="/imgs/map/bg.png"></image>
+  <view class="top">
+    <view class="name">为{{childrenInfo.childrenList[0].name}}定制</view>
+    <view class="age">{{childrenInfo.childAge}}，已完成{{activeDayInfo.answerDayNum}}个</view>
+    <view class="isExerBox">
+      <image src="/imgs/map/exer_{{activeDayInfo.hasAnswer?'no':'ok'}}.png"></image>
+      <text style="background: {{activeDayInfo.hasAnswer?'': '#eeeeee'}};color: {{activeDayInfo.hasAnswer?'': '#bbb'}};">{{activeDayInfo.hasAnswer?'今天已完成':'今天未完成'}}</text>
+    </view>
+  </view>
+  <view class="map">
+    <view class="mapItem" wx:for="{{list}}" wx:key="">
+      <view class="contentblock" wx:if="{{index%2==1}}"></view>
+      <view class="content">
+        <view class="imgwrap" wx:if="{{item.completeStatus || item.capsuleInfo}}">
+          <view class="imgBox" data-id="{{item.id}}" catch:tap="clickTarget" >
+            <image class="labelImg" src="{{hashLable[item.capsuleTargetInfo.labelTarget].labelImg}}"></image>
+          </view>
+          <image class="imgFoot" src="/imgs/map/targetFoot.png"></image>
+        </view>
+        <view class="imgwrap"  wx:else >
+          <view class="imgBox" catch:tap="clickLockTarget">
+            <image class="labelImg desaturate" src="{{hashLable[item.capsuleTargetInfo.labelTarget].labelImg}}"></image>
+          </view>
+          <image class="imgFoot" src="/imgs/map/targetFoot.png"></image>
+        </view>
+
+        <view class="text" wx:if="{{item.completeStatus || item.capsuleInfo}}">
+          第{{index + 1}}周·{{hashLable[item.capsuleTargetInfo.labelTarget].title}}{{item.capsuleTargetInfo.index?item.capsuleTargetInfo.index + 1: ''}}
+          <image catch:tap="showTargetDialog" data-item="{{item.capsuleTargetInfo}}" class="query" src="/imgs/map/query.png"></image>
+        </view>
+        <view class="text lockText" wx:else>
+          <image src="/imgs/map/lock.png"></image>
+          {{hashLable[item.capsuleTargetInfo.labelTarget].title}}{{item.capsuleTargetInfo.index?item.capsuleTargetInfo.index + 1: ''}}
+        </view>
+        <view class="popup" wx:if="{{item.capsuleInfo}}" data-id="{{item.id}}"  catch:tap="clickTarget" >
+          <image class="head" src="{{childrenInfo.childrenList[0].headimgUrl}}"></image>
+          <view>
+            <text class="day">Day{{item.capsuleInfo.dayNum}}</text>
+            <text class="scene">{{sceneTypeMap[item.capsuleInfo.sceneType]}}</text>
+          </view>
+          <image class="play" src="/imgs/map/GO.png"></image>
+        </view>
+        <image class="lineLeft" src="/imgs/map/left.png" wx:if="{{index%2==0}}"></image>
+        <image class="lineRight" src="/imgs/map/right.png" wx:if="{{index%2==1}}"></image>
+      </view>
+      <view class="contentblock" wx:if="{{index%2==0}}"></view>
+    </view>
+
+    <view class="mapItem">
+      <view class="contentblock" wx:if="{{list.length%2==1}}"></view>
+      <view class="content">
+        <view class="imgBox" catch:tap="clickLockTarget">
+          <image class="labelImg desaturate" src="/imgs/map/mapend.png"></image>
+        </view>
+        <view class="text lockText">
+          <image src="/imgs/map/lock.png"></image>
+          更多专属胶囊，等你开启~
+        </view>
+      </view>
+      <view class="contentblock" wx:if="{{list.length%2==0}}"></view>
+    </view>
+  </view>
+
+  <view class="dialog" wx:if="{{showNewUserDialog}}">
+    <view class="mask" catch:tap="hideDialog"></view>
+    <view class="content infoBox">
+      <image src="http://xinjijiaoyu.oss-cn-shenzhen.aliyuncs.com/Accompany%20capsule%20Pop-up/Pop-up%203.png"></image>
+      <view class="info">
+        <text class="info_one">{{childrenInfo.childrenList[0].name}}专属陪伴计划已生成</text>
+        <text class="info_two">Ready? GO!</text>
+      </view>
+      <view class="btn" catch:tap="hideDialog"><view>立即开始</view></view>
+    </view>
+  </view>
+  <view class="dialog" wx:if="{{showOldUserDialog}}">
+    <view class="mask" catch:tap="hideDialog"></view>
+    <view class="content infoBox">
+      <image src="https://xinjijiaoyu.oss-cn-shenzhen.aliyuncs.com/Accompany%20capsule%20Pop-up/Pop-up%204.png"></image>
+      <view class="info">
+        <text class="info_one">Hi,今天的游戏已新鲜出炉。</text>
+        <text class="info_two">快带宝宝玩起来吧！</text>
+      </view>
+      <view class="btn" catch:tap="hideDialog"><view>立即开始</view></view>
+    </view>
+  </view>
+
+  <view class="dialog" wx:if="{{showLockUserDialog}}">
+    <view class="mask" catch:tap="hideDialog"></view>
+    <view class="content infoBox">
+      <image src="https://xinjijiaoyu.oss-cn-shenzhen.aliyuncs.com/Accompany%20capsule%20Pop-up/Pop-up%202.png"></image>
+      <view class="info">
+        <text class="info_one">罗马不是一天建成滴~</text>
+        <text class="info_two">请先完成前面的胶囊，加油！</text>
+      </view>
+      <view class="btn" catch:tap="hideDialog"><view>我知道了</view></view>
+    </view>
+  </view>
+
+
+  <view class="dialogTarget " wx:if="{{showTargetDialog}}">
+    <view class="mask" catch:tap="hideTargetDialog"></view>
+    <view class="content infoBox">
+      <view class="title">{{titleTarget}}</view>
+      <view class="info">
+        {{descriptionTitle}}
+      </view>
+      <view class="btn" catch:tap="hideTargetDialog">确定</view>
+    </view>
+  </view>
+
+  <view class="dialog" wx:if="{{showNewTargetDialog}}">
+    <view class="mask" catch:tap="hideDialog"></view>
+    <view class="content infoBox">
+      <image src="https://xinjijiaoyu.oss-cn-shenzhen.aliyuncs.com/Accompany%20capsule%20Pop-up/Pop-up%205.png"></image>
+      <view class="info">
+        <text class="info_one">解锁新的陪伴目标！</text>
+        <text class="info_two">快带宝宝看看有啥新玩法吧~</text>
+      </view>
+      <view class="btn" catch:tap="hideDialog"><view>立即开始</view></view>
+    </view>
+  </view>
+
+  <image wx:if="{{showYearActivity}}" catch:tap="goYearActivity" class="yearActivity" src="https://xinjijiaoyu.oss-cn-shenzhen.aliyuncs.com/zhuantiye/icon.png"></image>
+
+</view>

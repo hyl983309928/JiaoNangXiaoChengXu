@@ -1,0 +1,13 @@
+
+<view class="medalList">
+  <view class="medalItem" wx:for="{{5}}" wx:key="">
+    <view class="imgBox">
+      <image class="" src="/imgs/medal/medal1.png"></image>
+    </view>
+    <view class="info">
+      <view class="name">观察力勋章</view>
+      <view class="time">2018-1-12</view>
+    </view>
+  </view>
+</view>
+<image class="bg" src="/imgs/medal/bj@2x.png"></image>

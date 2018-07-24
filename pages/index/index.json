@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "foot-tabbar": "../components/tabbar/tabbar",
+    "my-dialog": "../components/dialog/dialog"
+  }
+}

@@ -1,0 +1,118 @@
+<view class="page">
+  <view class="nav">
+    <view class="navItem {{optionOpen ==1?'active':''}}" catch:tap="changeNav" data-index="1">
+      <text>{{optionSelect.scene.id==0?'场景':optionSelect.scene.title}} </text>
+      <text class="iconfont icon-xiala" style="transform: rotate({{optionOpen ==1?'180':'0'}}deg)"></text>
+    </view>
+    <view class="navItem {{optionOpen ==2?'active':''}}" catch:tap="changeNav" data-index="2">
+      <text>{{optionSelect.target.id==0?'目标':optionSelect.target.title}} </text>
+      <text class="iconfont icon-xiala" style="transform: rotate({{optionOpen ==2?'180':'0'}}deg)"></text>
+    </view>
+    <view class="navItem {{optionOpen ==3?'active':''}}" catch:tap="changeNav" data-index="3">
+      <text>{{optionSelect.age.id==0?'年龄':optionSelect.age.title}} </text>
+      <text class="iconfont icon-xiala" style="transform: rotate({{optionOpen ==3?'180':'0'}}deg)"></text>
+    </view>
+    <view class="navItem {{optionOpen ==4?'active':''}}" catch:tap="changeNav" data-index="4">
+      <text>{{optionSelect.order.label}} </text>
+      <text class="iconfont icon-xiala" style="transform: rotate({{optionOpen ==4?'180':'0'}}deg)"></text>
+    </view>
+  </view>
+  <view class="scren" wx:if="{{optionOpen != 0}}">
+    <view class="mask" catch:tap="hideOption"></view>
+    <view class="content">
+      <block wx:if="{{optionOpen == 1}}">
+        <scroll-view scroll-y class="optionBox sceneOptionBox">
+          <view class="optionItem {{optionSelect.scene.id==0?'active':''}}" catch:tap="changeScene" data-id="{{0}}" data-title="''">
+            全部
+          </view>
+          <view catch:tap="changeScene" data-id="{{item.id}}" data-title="{{item.title}}" class="optionItem {{optionSelect.scene.id==item.id?'active':''}}" wx:for="{{sceneList}}" wx:key="">
+            {{item.title}}
+          </view>
+        </scroll-view>
+      </block>
+      <block wx:if="{{optionOpen == 2}}">
+        <view class="targetBox">
+          <view class="targetTop">
+            <view catch:tap="changeTargetTop" data-index="{{oneIndex+1}}" class="targetTop_item {{targetBuff.oneTarget==oneIndex+1?'active_top':''}}" data-id="{{oneItem.id}}" wx:for="{{targetMap}}" wx:for-index="oneIndex" wx:for-item="oneItem" wx:key="">
+              {{oneItem.title}}
+            </view>
+            <view catch:tap="targetAllClick" class="targetTop_item targetTopBtn">
+              <view>全部</view>
+            </view>
+          </view>
+          <view class="targetContent">
+            <view class="targetLeft" >
+              <view catch:tap="changeTargetLeft" data-index="{{twoIndex+1}}" class="targetLeft_item {{targetBuff.twoTarget==twoIndex+1?'active_two':''}}" wx:for="{{targetMap[targetBuff.oneTarget - 1].childs}}" wx:for-index="twoIndex" wx:for-item="twoItem" wx:key="">
+                {{twoItem.title}}
+              </view>
+            </view>
+            <scroll-view class="targetRight" scroll-y>
+              <view catch:tap="changeTargetRight" data-id="{{targetMap[targetBuff.oneTarget - 1].childs[targetBuff.twoTarget - 1].id}}" data-title="{{targetMap[targetBuff.oneTarget - 1].childs[targetBuff.twoTarget - 1].title}}" class="targetRight_item {{optionSelect.target.id==targetMap[targetBuff.oneTarget - 1].childs[targetBuff.twoTarget - 1].id?'active_three':''}}" >全部</view>
+              <view catch:tap="changeTargetRight" data-id="{{threeItem.id}}" data-title="{{threeItem.title}}" class="targetRight_item {{optionSelect.target.id==threeItem.id?'active_three':''}}" wx:for="{{targetMap[targetBuff.oneTarget - 1].childs[targetBuff.twoTarget - 1].childs}}" wx:for-index="threeIndex" wx:for-item="threeItem" wx:key="">
+                {{threeItem.title}}
+              </view>
+            </scroll-view>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{optionOpen == 3}}">
+        <view class="optionBox">
+          <view class="optionItem {{optionSelect.age.id==0?'active':''}}" catch:tap="changeAge" data-id="{{0}}" data-title="''">
+            全部
+          </view>
+          <view catch:tap="changeAge" data-id="{{item.id}}" data-title="{{item.title}}" class="optionItem {{optionSelect.age.id==item.id?'active':''}}" wx:for="{{ageMap}}" wx:key="">
+            {{item.title}}
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{optionOpen == 4}}">
+        <view class="optionBox">
+          <view catch:tap="changeOrder" data-value="{{item.value}}" data-label="{{item.label}}" class="optionItem {{optionSelect.order.value==item.value?'active':''}}" wx:for="{{orderLabelList}}" wx:key="">
+            {{item.text}}
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <scroll-view class="capsuleListBox" style="height:{{windowHeight}}px" scroll-y bindscrolltolower="scrolltolower">
+    <view bind:tap="goCapsuleInfo" data-id="{{item.id}}" class="capsuleItemBox" wx:for="{{list}}" wx:key="id">
+      <view class="content">
+
+
+        <view class="capsuleTypeBox" style="background: {{capsuleTypeColorMap[item.sceneType]}};">
+          <image src="{{item.sceneType==1?'/imgs/discover/game.png':item.sceneType==2?'/imgs/discover/look.png':'/imgs/discover/speak.png'}}"></image>
+          <text>{{item.sceneType==1?'一起玩':item.sceneType==2?'一起看':'一起聊'}}</text>
+        </view>
+
+        <image wx:if="{{item.hasAnswer}}" class="exercisedImg" src="/imgs/exerBlue.png"></image>
+        <image class="cover" src="{{item.cover}}"></image>
+        <view class="info">
+          <view class="title">{{item.topic}}</view>
+          <view class="target">
+            <text wx:for="{{item.labelTarget_title}}" wx:key="" wx:for-index="targetIndex" wx:for-item="targetItem" style="border:1px solid {{targetColorMap[targetItem.fatherId]}};color: {{targetColorMap[targetItem.fatherId]}};">{{targetItem.name}}</text>
+          </view>
+          <view class="introduce">
+            {{item.capsuleDesc}}
+          </view>
+        </view>
+      </view>
+      <view class="footInfo">
+        <view class="time">
+          发布：{{item.created_label}}
+        </view>
+        <view class="time">
+          {{item.exerciseAnsNum}}个家庭试过
+        </view>
+        <view class="age">
+          {{item.labelAge_title}} {{item.labelScene_title}}
+        </view>
+      </view>
+    </view>
+    <view class="more" wx:if="{{list.length == 0}}">
+      暂时没有发现适合的胶囊。胶囊库会持续更新，敬请期待。
+    </view>
+    <view class="more" wx:if="{{!isMore && list.length != 0}}">
+      更多胶囊即将发布，敬请期待……
+    </view>
+  </scroll-view>
+</view>

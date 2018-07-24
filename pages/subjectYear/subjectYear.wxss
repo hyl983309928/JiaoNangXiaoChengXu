@@ -1,0 +1,29 @@
+
+.page{
+  width:750rpx;
+  height: 3560rpx;
+  overflow: hidden;
+}
+.bg{
+  width:750rpx;
+  height: 3560rpx;
+}
+.content{
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 910rpx;
+  text-align: center;
+  font-size: 0;
+}
+.content view{
+  font-weight: bold;
+  font-size: 30rpx;
+  color: #F9E5B7;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+.content image{
+  width: 341rpx;
+  height: 646rpx;
+}

@@ -1,0 +1,12 @@
+
+
+<view class="page">
+  <image class="bg" src="https://xinjijiaoyu.oss-cn-shenzhen.aliyuncs.com/zhuantiye/luodiye/beijing.png"></image>
+  <view class="content">
+    <view>已打卡{{day}}/7天</view>
+    <image style="margin-right: 40rpx" bind:tap="goDiscover" data-scene="204" src="https://xinjijiaoyu.oss-cn-shenzhen.aliyuncs.com/zhuantiye/luodiye/xinnian-01.png"></image>
+    <image bind:tap="goDiscover" data-scene="206" src="https://xinjijiaoyu.oss-cn-shenzhen.aliyuncs.com/zhuantiye/luodiye/xinnian-02.png"></image>
+    <image style="margin-right: 40rpx" bind:tap="goDiscover" data-scene="207" src="https://xinjijiaoyu.oss-cn-shenzhen.aliyuncs.com/zhuantiye/luodiye/xinnian-03.png"></image>
+    <image bind:tap="goDiscover" data-scene="205" src="https://xinjijiaoyu.oss-cn-shenzhen.aliyuncs.com/zhuantiye/luodiye/xinnian-04.png"></image>
+  </view>
+</view>
